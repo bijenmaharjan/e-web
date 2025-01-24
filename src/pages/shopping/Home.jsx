@@ -152,6 +152,7 @@ const ShoppingHome = () => {
       }
     });
   }
+  
   function handleGetProductDetails(getCurrentProductId) {
     dispatch(fetchProductDetails(getCurrentProductId));
   }
