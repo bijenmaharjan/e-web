@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 const cors = require("cors");
-const cookie = require("cookie-parser");
 const cookieParser = require("cookie-parser");
 const authRouter = require("./routes/auth/auth-routes");
 const adminRouter = require("./routes/admin/product-routes");
@@ -11,7 +10,9 @@ const cartRouter = require("./routes/shop/cart-routes");
 const addressRouter = require("./routes/shop/address-routes");
 const orderRouter = require("./routes/shop/order-routes");
 const orderAdminRouter = require("./routes/admin/order-routes");
-const shopSearchRouter = require("./routes/shop/shop-routes");
+const shopSearchRouter = require("./routes/shop/search-routes");
+
+require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
