@@ -11,6 +11,7 @@ const addressRouter = require("./routes/shop/address-routes");
 const orderRouter = require("./routes/shop/order-routes");
 const orderAdminRouter = require("./routes/admin/order-routes");
 const shopSearchRouter = require("./routes/shop/search-routes");
+const reviewRouter = require("./routes/shop/review-routes");
 
 require("dotenv").config();
 
@@ -42,6 +43,7 @@ app.use("/shop/address", addressRouter);
 app.use("/shop/order", orderRouter);
 app.use("/shop/order/admin", orderAdminRouter);
 app.use("/shop/search", shopSearchRouter);
+app.use("/shop/review", reviewRouter);
 
 //MongoDB connections
 mongoose
