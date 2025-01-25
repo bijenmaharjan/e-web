@@ -79,6 +79,10 @@ export const addProductFormElements = [
         id: "footwear",
         label: "Footwear",
       },
+      {
+        id: "known",
+        label: "--",
+      },
     ],
   },
   {
@@ -110,6 +114,10 @@ export const addProductFormElements = [
       {
         id: "h&m",
         label: "H&M",
+      },
+      {
+        id: "known",
+        label: "--",
       },
     ],
   },

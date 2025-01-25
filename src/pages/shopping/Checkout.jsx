@@ -8,9 +8,8 @@ import { toast } from "../../hooks/use-toast";
 
 const ShoppingCheckout = () => {
   const { cart } = useSelector((state) => state.cart);
+  console.log("cart2", cart);
 
-  console.log("cart", cart?._doc?._id);
-  console.log(cart, "cart");
   const { user } = useSelector((state) => state.auth);
   const { approvalURL } = useSelector((state) => state.order);
   const { address } = useSelector((state) => state.address);
@@ -120,9 +119,7 @@ const ShoppingCheckout = () => {
         />
         <div className="flex flex-col gap-4 w-full">
           {cart && cart.items && cart.items.length > 0 ? (
-            cart.items.map((item) => (
-              <Cartitemscontent key={item.id} cart={item} />
-            ))
+            cart.items.map((item) => <Cartitemscontent cartItems={item} />)
           ) : (
             <p>No items in cart</p>
           )}
