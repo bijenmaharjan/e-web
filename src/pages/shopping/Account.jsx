@@ -9,9 +9,7 @@ import {
 import Orders from "../../components/shopping/Orders";
 import Address from "../../components/shopping/Address";
 
-
 const ShoppingAccount = () => {
-
   return (
     <div className="flex flex-col">
       <div className="relative h-[350px] w-full overflow-hidden">

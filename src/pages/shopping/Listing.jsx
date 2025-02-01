@@ -124,12 +124,6 @@ const ShoppingListing = () => {
     dispatch(fetchProductDetails(id));
   };
 
-  // Close product details dialog
-  const handleDialogClose = () => {
-    setOpenDetailsDialog(false);
-    dispatch(clearProductDetails());
-  };
-
   return (
     <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-6 p-4">
       <ProductFilter filters={filters} handleFilter={handleFilter} />
@@ -176,7 +170,7 @@ const ShoppingListing = () => {
       </div>
       <ProductDetails
         open={openDetailsDialog}
-        setOpen={handleDialogClose}
+        setOpen={setOpenDetailsDialog}
         productDetails={productDetails}
         handleAddCart={handleAddCart}
       />
