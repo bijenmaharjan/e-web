@@ -17,7 +17,6 @@ const UserSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
-      // Remove maxlength to allow for hashed passwords
     },
     role: {
       type: String,
