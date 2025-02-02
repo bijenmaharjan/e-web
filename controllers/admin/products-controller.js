@@ -42,7 +42,10 @@ const addProducts = async (req, res) => {
       price,
       salePrice,
       totalStock,
+      size,
     } = req.body;
+
+    console.log("body", req.body);
 
     const product = await productModel.create({
       image,
@@ -53,6 +56,7 @@ const addProducts = async (req, res) => {
       price,
       salePrice,
       totalStock,
+      size,
     });
     await product.save();
 
@@ -96,6 +100,7 @@ const editProducts = async (req, res) => {
       price,
       salePrice,
       totalStock,
+      size,
     } = req.body;
     console.log("body", req.body);
     let findProduct = await productModel.findById(id);
@@ -113,6 +118,7 @@ const editProducts = async (req, res) => {
     findProduct.salePrice =
       salePrice === "" ? 0 : salePrice || findProduct.salePrice;
     findProduct.totalStock = totalStock || findProduct.totalStock;
+    findProduct.size = size || findProduct.size;
     findProduct.image = image || findProduct.image;
 
     await findProduct.save();
