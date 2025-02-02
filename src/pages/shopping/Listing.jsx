@@ -35,6 +35,7 @@ const ShoppingListing = () => {
   const { product, productDetails } = useSelector(
     (state) => state.shopproducts
   );
+  console.log("product", productDetails);
   const { user } = useSelector((state) => state.auth);
   const [searchParams, setSearchParams] = useSearchParams();
   const [sort, setSort] = useState("price-lowtohigh");

@@ -142,7 +142,45 @@ export const addProductFormElements = [
     type: "number",
     placeholder: "Enter total stock",
   },
+  {
+    label: "Size",
+    name: "size",
+    componentType: "checkbox",
+    type: "checkbox",
+    options: [
+      {
+        id: "XS",
+        label: "XS",
+      },
+      {
+        id: "S",
+        label: "S",
+      },
+      {
+        id: "M",
+        label: "M",
+      },
+      {
+        id: "L",
+        label: "L",
+      },
+      {
+        id: "XL",
+        label: "XL",
+      },
+      {
+        id: "2XL",
+        label: "2XL",
+      },
+      {
+        id: "3XL",
+        label: "3XL",
+      },
+    ],
+  },
 ];
+
+export const productSize = [];
 
 export const shoppingMenuItems = [
   {
@@ -305,3 +343,5 @@ export const addressFormControls = [
     placeholder: "Enter any additional notes",
   },
 ];
+
+

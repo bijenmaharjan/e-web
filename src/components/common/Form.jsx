@@ -10,7 +10,8 @@ import {
 } from "../UI/select";
 
 import { Textarea } from "../UI/textarea";
-import { toast } from "../../hooks/use-toast";
+;
+import { Checkbox } from "../UI/checkbox";
 
 const Form = ({
   formControls,
@@ -22,7 +23,7 @@ const Form = ({
   isBtnDisabled,
 }) => {
   console.log(isBtnDisabled, "btn");
-  
+
   const renderInputsByComponentType = (getControlItems) => {
     let value = formData[getControlItems.name || ""];
 
@@ -90,6 +91,35 @@ const Form = ({
             }
           />
         );
+        break;
+
+      case "checkbox":
+        element = (
+          <div className="flex flex-wrap gap-4">
+            {getControlItems.options.map((option) => (
+              <div key={option.id} className="flex items-center space-x-2">
+                <Checkbox
+                  id={option.id}
+                  checked={(value || []).includes(option.id)} // Ensure `value` is an array
+                  onCheckedChange={(checked) => {
+                    const updatedValues = checked
+                      ? [...(value || []), option.id] // Add selected size
+                      : (value || []).filter((v) => v !== option.id); // Remove unselected size
+
+                    setFormData({
+                      ...formData,
+                      [getControlItems.name]: updatedValues,
+                    });
+                  }}
+                />
+                <Label htmlFor={option.id} className="cursor-pointer">
+                  {option.label}
+                </Label>
+              </div>
+            ))}
+          </div>
+        );
+        break;
 
       default:
         element = (

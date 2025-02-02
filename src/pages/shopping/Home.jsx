@@ -41,7 +41,10 @@ const ShoppingHome = () => {
   const { product, productDetails } = useSelector(
     (state) => state.shopproducts
   );
+  console.log("product", product);
+  console.log("productDetails", productDetails);
   const { cart } = useSelector((state) => state.cart);
+  console.log("cart22", cart);
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
   const [openDetailsDialog, setOpenDetailsDialog] = useState(false);
@@ -116,9 +119,9 @@ const ShoppingHome = () => {
     return () => clearInterval(timer);
   }, [setCurrentSlide]);
 
-  function handleAddCart(id, getTotalStock) {
-    console.log("getCurrentProductId", id);
-    console.log("getTotalStock", getTotalStock);
+  function handleAddCart(id, getTotalStock, sizedata) {
+    console.log("sizedata22", sizedata);
+   
     let getCartItems = cart.items || [];
 
     if (getCartItems.length) {
@@ -142,6 +145,7 @@ const ShoppingHome = () => {
         userId: user?.id,
         productId: id,
         quantity: 1,
+        size: sizedata,
       })
     ).then((data) => {
       if (data?.payload?.success) {
@@ -152,7 +156,7 @@ const ShoppingHome = () => {
       }
     });
   }
-  
+
   function handleGetProductDetails(getCurrentProductId) {
     dispatch(fetchProductDetails(getCurrentProductId));
   }

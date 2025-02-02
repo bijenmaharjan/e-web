@@ -28,6 +28,7 @@ const initialFormData = {
   price: "",
   salePrice: "",
   totalStock: "",
+  size: [],
 };
 
 const AdminProducts = () => {
