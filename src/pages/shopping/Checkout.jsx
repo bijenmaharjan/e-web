@@ -62,6 +62,7 @@ const ShoppingCheckout = () => {
         salePrice:
           cartitem?.salePrice > 0 ? cartitem.salePrice : cartitem.price,
         quantity: cartitem?.quantity,
+        size: cartitem?.size,
       })),
       addressInfo: {
         addressId: currentSelectedAddress?._id,

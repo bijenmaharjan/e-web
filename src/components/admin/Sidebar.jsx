@@ -3,7 +3,6 @@ import { ChartNoAxesCombined, MailWarningIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingBasket, BadgeCheck, ChartNoAxesColumn } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "../UI/sheet";
-import Image from "./Image";
 
 const adminSidebarMenuItems = [
   {
@@ -73,7 +72,6 @@ const AdminSidebar = ({ open, setOpen }) => {
         </div>
         <MenuItems />
       </aside>
-      
     </Fragment>
   );
 };

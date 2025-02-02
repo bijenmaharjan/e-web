@@ -32,6 +32,8 @@ import { useNavigate } from "react-router-dom";
 import { addToCart, fetchCartItems } from "../../store/shop/cart";
 import { toast } from "../../hooks/use-toast";
 import ProductDetails from "../../components/shopping/ProductDetails";
+import ProductFilter from "../../components/shopping/ProductFilter";
+import ShoppingListing from "./Listing";
 
 const slides = [banner, banner6, banner8, banner9, banner11, banner12];
 
@@ -121,7 +123,7 @@ const ShoppingHome = () => {
 
   function handleAddCart(id, getTotalStock, sizedata) {
     console.log("sizedata22", sizedata);
-   
+
     let getCartItems = cart.items || [];
 
     if (getCartItems.length) {
@@ -182,8 +184,8 @@ const ShoppingHome = () => {
   }, [productDetails]);
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="relative w-full h-full">
+    <div className="flex flex-col min-h-screen px-3">
+      <div className="relative w-full h-full ">
         {slides.map((slideItem, index) => (
           <img
             key={index}
@@ -191,7 +193,7 @@ const ShoppingHome = () => {
             alt="Shopping Banner"
             className={`${
               index === currentSlide ? "opacity-100" : "opacity-0"
-            } h-[800px] object-fit w-full absolute left-0 transition-opacity duration-1000 `}
+            } h-[600px] object-fit w-full absolute left-0 transition-opacity duration-1000 pl-80 pt-3 pr-5     `}
           />
         ))}
 
@@ -202,7 +204,7 @@ const ShoppingHome = () => {
               (prevSlide) => (prevSlide - 1 + slides.length) % slides.length
             )
           }
-          className="absolute top-80 left-4 transform -translate-y-1/2 bg-slate-100"
+          className="absolute top-80 left-[330px] transform -translate-y-1/2 bg-slate-100 opacity-30"
         >
           <ChevronLeftIcon className="w-10 h-8" />
         </button>
@@ -212,13 +214,15 @@ const ShoppingHome = () => {
           onClick={() =>
             setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length)
           }
-          className="absolute top-80 right-4 transform -translate-y-1/2 bg-slate-100"
+          className="absolute top-80 right-8 opacity-30 transform -translate-y-1/2 bg-slate-100"
         >
           <ChevronRightIcon className="w-10 h-8" />
         </button>
       </div>
+      
+      <ProductFilter />
       {/*Shop by Category */}
-      <section className="pt-[850px]">
+      <section className="pt-[50px]">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8">
             Shop by Category
